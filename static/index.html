@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通达信AI选股系统</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 顶部标题 -->
+        <header class="header">
+            <h1 class="title">
+                <span class="icon">📈</span>
+                通达信AI选股系统
+            </h1>
+            <p class="subtitle">智能选股 · 数据驱动 · 精准决策</p>
+        </header>
+
+        <!-- 主要内容区 -->
+        <div class="main-content">
+            <!-- 左侧:策略创建 -->
+            <div class="left-panel">
+                <div class="card">
+                    <h2 class="card-title">创建选股策略</h2>
+
+                    <div class="form-group">
+                        <label for="strategyName">策略名称</label>
+                        <input type="text" id="strategyName" placeholder="例如:低估值高成长股" class="input">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="strategyInput">选股条件描述</label>
+                        <textarea id="strategyInput" rows="5"
+                            placeholder="用自然语言描述选股条件,例如:&#10;- 选出市盈率小于20且最近5天平均成交量大于1000万手的股票&#10;- 找出最近20天收盘价持续上涨且涨幅超过10%的股票&#10;- 筛选出最近一个月成交额大于5亿的低价股(价格低于10元)"
+                            class="textarea"></textarea>
+                    </div>
+
+                    <div class="button-group">
+                        <button id="generateBtn" class="btn btn-primary">
+                            <span class="btn-icon">✨</span>
+                            生成策略
+                        </button>
+                        <button id="executeBtn" class="btn btn-success" disabled>
+                            <span class="btn-icon">🚀</span>
+                            执行选股
+                        </button>
+                    </div>
+
+                    <!-- 生成的代码展示 -->
+                    <div id="codeSection" class="code-section" style="display: none;">
+                        <h3 class="section-title">生成的策略代码</h3>
+                        <pre id="generatedCode" class="code-block"></pre>
+                    </div>
+                </div>
+
+                <!-- 历史策略 -->
+                <div class="card">
+                    <h2 class="card-title">历史策略</h2>
+                    <div id="strategyList" class="strategy-list">
+                        <p class="empty-state">暂无历史策略</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧:选股结果 -->
+            <div class="right-panel">
+                <div class="card">
+                    <div class="result-header">
+                        <h2 class="card-title">选股结果</h2>
+                        <div class="result-actions" id="resultActions" style="display: none;">
+                            <button id="exportBtn" class="btn btn-secondary btn-sm">
+                                <span class="btn-icon">📥</span>
+                                导出自选股
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 加载状态 -->
+                    <div id="loadingState" class="loading-state" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>正在执行选股策略,请稍候...</p>
+                    </div>
+
+                    <!-- 结果统计 -->
+                    <div id="resultStats" class="result-stats" style="display: none;">
+                        <div class="stat-item">
+                            <span class="stat-label">选中股票</span>
+                            <span class="stat-value" id="totalCount">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">执行耗时</span>
+                            <span class="stat-value" id="executionTime">0s</span>
+                        </div>
+                    </div>
+
+                    <!-- 结果表格 -->
+                    <div id="resultsTable" class="results-table">
+                        <p class="empty-state">请创建并执行选股策略</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast通知 -->
+    <div id="toast" class="toast"></div>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
