@@ -4,7 +4,11 @@
 
 ## 项目简介
 
-本项目将通达信本地数据转化为RESTful API服务,并集成AI大模型实现智能选股功能。无需将数据转储到MySQL,直接读取通达信.day文件,提供高性能的数据查询和选股服务。
+本项目将通达信本地数据转化为RESTful API服务,并集成AI大模型实现智能选股功能。无需将数据转储到数据库,直接读取通达信.day文件,提供高性能的数据查询和选股服务。
+<img width="1910" height="923" alt="image" src="https://github.com/user-attachments/assets/7b805c9c-9e36-4152-a7cf-eed9283c4374" />
+<img width="1910" height="923" alt="image" src="https://github.com/user-attachments/assets/22c01629-b7dc-45b2-a1bc-53209c4bd0fd" />
+<img width="1910" height="923" alt="image" src="https://github.com/user-attachments/assets/11686026-5893-49e3-b24d-76b41e7670dd" />
+<img width="1480" height="759" alt="image" src="https://github.com/user-attachments/assets/d67bd635-c569-492e-942d-50e4d6f828e2" />
 
 ## 核心功能
 
