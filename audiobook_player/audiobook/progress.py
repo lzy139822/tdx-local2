@@ -3,7 +3,11 @@ import json
 import os
 from typing import Dict, Optional
 
-STATE_DIR = os.path.join(os.path.expanduser("~"), ".audiobook_player")
+# 支持通过环境变量指定状态目录（Android 上需用应用私有目录）
+STATE_DIR = os.environ.get(
+    "AUDIOBOOK_STATE_DIR",
+    os.path.join(os.path.expanduser("~"), ".audiobook_player"),
+)
 STATE_FILE = os.path.join(STATE_DIR, "progress.json")
 
 
